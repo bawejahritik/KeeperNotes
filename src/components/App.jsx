@@ -6,8 +6,7 @@ import CreateArea from "./CreateArea";
 
 function App() {
 
-  const storedNotes = JSON.parse(localStorage.getItem('notes'))
-  const [inputNotes, setInputNotes] = useState(storedNotes);
+  const [inputNotes, setInputNotes] = useState([]);
 
   function addNote(note) {
     setInputNotes(prevItems => {
@@ -22,10 +21,6 @@ function App() {
       });
     });
   }
-
-  useEffect(() => {
-    localStorage.setItem('notes', JSON.stringify(inputNotes))
-  }, [inputNotes])
 
   return (
     <div>
